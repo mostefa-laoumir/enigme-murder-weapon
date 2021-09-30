@@ -6,11 +6,30 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         //open text file using File class and Scanner class
-        File file = new File("src/weapon.txt");
-                Scanner sc = new Scanner(file);
+        //File file = new File("src/weapon.txt");
+              //  Scanner sc = new Scanner(file);
                 //initializing a counter with 0
-                int i =0;
+             //   int i =0;
                 //loop that runs until the end of file (EoF)
+        try {
+            System.out.print("Enter the file name with extension : ");
+
+            Scanner input = new Scanner(System.in);
+
+            File file = new File(input.nextLine());
+
+            input = new Scanner(file);
+
+
+            while (input.hasNextLine()) {
+                String line = input.nextLine();
+                System.out.println(line);
+            }
+            input.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         while (sc.hasNextLine()){
             //get first line in file
             String line =  sc.nextLine();
